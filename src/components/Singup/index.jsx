@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-require('dotenv').config()
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -21,7 +20,7 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = `${process.env.BASE_URL_API}api/users`;
+			const url = `https://mern-gr4h9x4qs-app-sends-projects.vercel.app/api/users`;
 			const { data: res } = await axios.post(url, data);
 			setMsg(res.message);
 		} catch (error) {

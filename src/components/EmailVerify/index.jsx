@@ -4,7 +4,6 @@ import axios from "axios";
 import success from "../../images/success.png";
 import styles from "./styles.module.css";
 import { Fragment } from "react/cjs/react.production.min";
-require('dotenv').config();
 
 const EmailVerify = () => {
 	const [validUrl, setValidUrl] = useState(true);
@@ -13,7 +12,7 @@ const EmailVerify = () => {
 	useEffect(() => {
 		const verifyEmailUrl = async () => {
 			try {
-				const url = `${process.env.BASE_URL_API}api/users/${param.id}/verify/${param.token}`;
+				const url = `https://mern-gr4h9x4qs-app-sends-projects.vercel.app/api/users/${param.id}/verify/${param.token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);
