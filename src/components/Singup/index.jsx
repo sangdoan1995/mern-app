@@ -20,7 +20,7 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = `https://mern-gr4h9x4qs-app-sends-projects.vercel.app/api/users`;
+			const url = `http://mern-gr4h9x4qs-app-sends-projects.vercel.app/api/users`;
 			const { data: res } = await axios.post(url, data);
 			setMsg(res.message);
 		} catch (error) {

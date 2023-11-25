@@ -12,7 +12,7 @@ const EmailVerify = () => {
 	useEffect(() => {
 		const verifyEmailUrl = async () => {
 			try {
-				const url = `https://mern-gr4h9x4qs-app-sends-projects.vercel.app/api/users/${param.id}/verify/${param.token}`;
+				const url = `http://mern-gr4h9x4qs-app-sends-projects.vercel.app/api/users/${param.id}/verify/${param.token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);
