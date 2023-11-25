@@ -2,6 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+require('dotenv').config()
 
 const Login = () => {
 	const [data, setData] = useState({ email: "", password: "" });
@@ -14,7 +15,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = "http://localhost:8080/api/auth";
+			const url = `${process.env.BASE_URL_API}api/auth`;
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
 			window.location = "/";
