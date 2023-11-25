@@ -15,7 +15,7 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			const url = `http://mern-gr4h9x4qs-app-sends-projects.vercel.app/api/auth`;
+			const url = `https://mern-api-kappa.vercel.app/api/auth`;
 			const { data: res } = await axios.post(url, data);
 			localStorage.setItem("token", res.data);
 			window.location = "/";
