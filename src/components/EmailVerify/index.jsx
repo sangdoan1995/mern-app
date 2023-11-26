@@ -12,7 +12,7 @@ const EmailVerify = () => {
 	useEffect(() => {
 		const verifyEmailUrl = async () => {
 			try {
-				const url = `https://mern-api-kappa.vercel.app/api/users/${param.id}/verify/${param.token}`;
+				const url = `https://mern-backend-4lkz.onrender.com/${param.id}/verify/${param.token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);
