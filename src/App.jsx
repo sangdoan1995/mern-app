@@ -2,7 +2,8 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import Main from "./components/Main";
 import Signup from "./components/Singup";
 import Login from "./components/Login";
-import {path} from "./constant";
+import Todo from "./components/Pages/Todolist/formTodo"
+import { path } from "./constant";
 import EmailVerify from "./components/EmailVerify";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 			<Route path={path.LOGIN} exact element={<Login />} />
 			<Route path={path.HOME} element={<Navigate replace to={path.LOGIN} />} />
 			<Route path={path.VERIFY_EMAIL} element={<EmailVerify />} />
+			<Route path={path.TODO} element={<Todo />} />
 		</Routes>
 	);
 }
