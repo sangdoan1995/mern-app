@@ -1,8 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./main.css"
 
 
 const Main = () => {
+	const param = useParams();
+	const navigate = useNavigate();
+	const handlerTodo = () => {
+		navigate(`/${param.id}/todo`)
+	}
 	const handleLogout = () => {
 		localStorage.removeItem("token");
 		window.location.reload();
@@ -58,32 +63,32 @@ const Main = () => {
 									</div>
 
 
-									<Link to="/todo">
-										<div className="hexagon-item">
-											<div className="hex-item">
-												<div></div>
-												<div></div>
-												<div></div>
-											</div>
-											<div className="hex-item">
-												<div></div>
-												<div></div>
-												<div></div>
-											</div>
-											<div className="hex-content">
-												<span className="hex-content-inner">
-													<span className="icon">
-														<i className="fas fa-universal-access"></i>
-													</span>
-													<span className="title">Reminder Working</span>
-												</span>
-												<svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
-													<path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
-												</svg>
-											</div>
 
+									<div className="hexagon-item">
+										<div className="hex-item">
+											<div></div>
+											<div></div>
+											<div></div>
 										</div>
-									</Link>
+										<div className="hex-item">
+											<div></div>
+											<div></div>
+											<div></div>
+										</div>
+										<div className="hex-content">
+											<span className="hex-content-inner">
+												<span className="icon">
+													<i className="fas fa-universal-access"></i>
+												</span>
+												<button className="title" onClick={handlerTodo}>Nhắc Công Việc</button>
+											</span>
+											<svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
+												<path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
+											</svg>
+										</div>
+
+									</div>
+
 									<Link to="/absent">
 										<div className="hexagon-item">
 											<div className="hex-item">
@@ -101,7 +106,7 @@ const Main = () => {
 													<span className="icon">
 														<i className="fas fa-universal-access"></i>
 													</span>
-													<span className="title">Absent</span>
+													<span className="title">Nghỉ Phép</span>
 												</span>
 												<svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
 													<path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>
@@ -127,7 +132,7 @@ const Main = () => {
 												<span className="icon">
 													<i className="fas fa-universal-access"></i>
 												</span>
-												<button className="title" onClick={handleLogout}>LogOut</button>
+												<button className="title" onClick={handleLogout}>Đăng xuất</button>
 											</span>
 											<svg viewBox="0 0 173.20508075688772 200" height="200" width="174" version="1.1" xmlns="http://www.w3.org/2000/svg">
 												<path d="M86.60254037844386 0L173.20508075688772 50L173.20508075688772 150L86.60254037844386 200L0 150L0 50Z" fill="#1e2530"></path>

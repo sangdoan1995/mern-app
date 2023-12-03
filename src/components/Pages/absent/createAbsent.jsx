@@ -1,36 +1,32 @@
 import React, { useState } from "react";
-import { post } from "axios";
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom"
+import "./createAbsent.css";
+import DateTimePicker from "react-datetime-picker/dist/DateTimePicker";
 
-function CrudAdd(props) {
-    const initialState = {
-        companyName: "",
-        phone: "",
-        email: "",
-        location: "",
-        link: "",
+
+const CrudAdd = () => {
+    const number = Math.floor(900000 * Math.random()) + 100000;
+    const [crud, setCrud] = useState({
+        id: number,
+        staffName: "",
+        daysleave: "",
+        daysfrom: "",
+        daysto: "",
         description: "",
-    };
-    const [crud, setCrud] = useState(initialState);
+
+    });
 
     const navigate = useNavigate();
 
-    function handleSubmit(event) {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        //if (!crud.companyName || !crud.email) return;
-        async function postCrud() {
-            try {
-                const response = await post("/api/cruds/", crud);
-                navigate(`/cruds/${response.data._id}`);
-            } catch (error) {
-                console.log("error", error);
-            }
-        }
-        postCrud();
-    }
 
-    function handleChange(event) {
-        setCrud({ ...crud, [event.target.name]: event.target.value });
+        const data = await axios.post('https://mern-backend-4lkz.onrender.com/absent/create', crud)
+            .then(res => console.log(res.data))
+            .catch(err => console.log(err))
+
+        navigate(`/absent/sendmail/${crud.id}`)
     }
 
     function handleCancel() {
@@ -38,82 +34,84 @@ function CrudAdd(props) {
     }
 
     return (
-        <div className="container" style={{ maxWidth: "400px" }}>
-            <h1>Create CRUD</h1>
+        <div className="container-create" style={{ maxWidth: "400px" }}>
+            <h1>Tạo mẫu phép</h1>
             <hr />
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
-                    <label>Company Name</label>
+                    <label>Tên nhân viên</label>
                     <input
-                        name="companyName"
+                        name="staffName"
                         type="text"
                         required
-                        value={crud.companyName}
-                        onChange={handleChange}
+                        value={crud.staffName}
+                        onChange={(event) => setCrud({ ...crud, staffName: event.target.value })}
                         className="form-control"
                     />
                 </div>
                 <div className="form-group">
-                    <label>Phone</label>
+                    <label>Số ngày nghỉ</label>
                     <input
-                        name="phone"
-                        type="tel"
-                        pattern="(251)-[0-9]{3}-[0-9]{6}"
+                        name="daysleave"
+                        type="number"
+                        value={crud.daysleave}
                         required
-                        value={crud.phone}
-                        onChange={handleChange}
                         className="form-control"
+                        onChange={(e) => setCrud({ ...crud, daysleave: e.target.value })}
                     />
-                    <small>Format: 251-XXX-XXXXXX</small>
+                    <small>Format:0.5 or 1</small>
                 </div>
                 <div className="form-group">
-                    <label>Email</label>
-                    <input
-                        name="email"
-                        type="email"
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$"
+                    <label>Từ ngày</label>
+
+                    <DateTimePicker
+                        name='daysfrom'
+                        value={crud.daysfrom}
+                        onChange={(e) => setCrud({ ...crud, daysfrom: e })}
+                        mindate={new Date()}
+                        minutePlaceholder="mm"
+                        hourPlaceholder="hh"
+                        dayPlaceholder="DD"
+                        monthPlaceholder="MM"
+                        yearAriaLabel="YYYY"
                         required
-                        value={crud.email}
-                        onChange={handleChange}
-                        className="form-control"
+
                     />
+
+                    <small>Format: 12/25/2023 08:00 AM</small>
                 </div>
                 <div className="form-group">
-                    <label>Location</label>
-                    <input
-                        name="location"
-                        type="text"
+                    <label>Đến ngày</label>
+                    <DateTimePicker
+                        name='daysto'
+                        value={crud.daysto}
+                        onChange={(e) => setCrud({ ...crud, daysto: e })}
+                        mindate={new Date()}
+                        minutePlaceholder="mm"
+                        hourPlaceholder="hh"
+                        dayPlaceholder="DD"
+                        monthPlaceholder="MM"
+                        yearAriaLabel="YYYY"
                         required
-                        value={crud.location}
-                        onChange={handleChange}
-                        className="form-control"
                     />
-                </div>
-                <div className="form-group">
-                    <label>Website/Social Link</label>
-                    <input
-                        name="link"
-                        type="url"
-                        value={crud.link}
-                        onChange={handleChange}
-                        className="form-control"
-                    />
-                    <small>Format: https://yourlink.ext</small>
+                    <small>Format: 12/25/2023 05:00 PM</small>
                 </div>
 
                 <div className="form-group">
-                    <label>Description</label>
+                    <label>Lí do nghỉ phép</label>
                     <textarea
                         name="description"
                         row="10"
                         value={crud.description}
-                        onChange={handleChange}
+                        onChange={(e) => setCrud({ ...crud, description: e.target.value })}
                         className="form-control"
                     />
                 </div>
 
                 <div className="btn-group">
-                    <input type="submit" value="Submit" className="btn btn-primary" />
+
+                    <input type="submit" value="Submit" className="btn btn-primary" onClick={handleSubmit} />
+
                     <button
                         type="button"
                         onClick={handleCancel}
@@ -124,6 +122,7 @@ function CrudAdd(props) {
                 </div>
             </form>
         </div>
+
     );
 }
 

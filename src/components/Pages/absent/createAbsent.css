@@ -1,0 +1,50 @@
+.container-create {
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: rgb(177, 168, 168);
+}
+
+.form-group {
+    margin-bottom: 15px;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn-secondary {
+    padding: 8px;
+    width: 30%;
+    color: black;
+}
+
+.btn-primary {
+    background-color: green;
+    color: black;
+}
+
+.btn-primary:hover {
+    background-color: red;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: black;
+    color: white;
+}

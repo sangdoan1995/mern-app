@@ -14,7 +14,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: linear-gradient(to bottom right, rgb(10, 10, 10), rgb(80, 167, 224), rgb(7, 40, 63))
+    background: linear-gradient(to bottom right, rgb(10, 10, 10), rgb(54, 55, 56), rgb(7, 40, 63));
+    background-image: url(https://img4.thuthuatphanmem.vn/uploads/2020/06/05/hinh-nen-cong-nghe-don-gian-ma-dep_103228946.jpg);
 }
 
 .homepage_header {
@@ -28,9 +29,10 @@
     min-height: fit-content;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
-    background: white;
+    background: rgb(167, 192, 192);
     position: relative;
-    background: rgba(255, 255, 255, 0.377);
+    /* background: rgba(235, 225, 225, 0.377); */
+    color: black;
 }
 
 .homepage_header>.button {
@@ -45,6 +47,11 @@
     border-radius: 8px;
     outline: none;
     cursor: pointer;
+}
+
+.homepage_header>.button:hover {
+    background-color: red;
+    color: black;
 }
 
 .homepage_header>input {

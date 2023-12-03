@@ -1,0 +1,62 @@
+.container-absent {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid black;
+    margin: auto;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    width: 100%;
+
+}
+
+.btn-home {
+    color: rgb(8, 195, 241);
+}
+
+.table-title {
+    color: black;
+    font-size: 30px;
+}
+
+a.btn.btn-primary.float-right {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 30px;
+
+}
+
+a.btn.btn-primary.float-right:hover {
+    background-color: red;
+    color: white;
+}
+
+.tb-container {
+    width: 99%;
+}
+
+th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #3e52c4;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+}
+
+td {
+    text-align: center;
+    color: black;
+    background-color: rgb(177, 168, 168);
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 5px;
+    padding: 8px;
+}

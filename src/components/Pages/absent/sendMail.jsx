@@ -1,80 +1,76 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import "./sendMail.css";
 
-function CrudDetails(props) {
-    const [crud, setCrud] = useState({});
-
-    const { _id } = useParams();
+const SendMail = (req, res) => {
+    const [crud, setCrud] = useState('');
+    const param = useParams()
     const navigate = useNavigate();
 
-    useEffect(
-        function () {
-            async function getCrudById() {
-                try {
-                    const response = await axios.get(`/api/cruds/${_id}`);
-                    setCrud(response.data);
-                } catch (error) {
-                    console.log("error", error);
-                }
-            }
-            getCrudById();
-        },
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-        [props]
-    );
+    useEffect(() => {
+        const handleGetData = async (req, res) => {
+            const { data } = await axios.get(`https://mern-backend-4lkz.onrender.com/absent/sendmail/${param.id}`);
+            setCrud(data);
+        }
+        handleGetData();
+    }, [])
 
-    async function handleDelete() {
+    const handleSend = async (req, res) => {
         try {
-            await axios.delete(`/api/cruds/${_id}`);
-            navigate("/cruds");
-        } catch (error) {
-            console.error(error);
+            await axios.post(`https://mern-backend-4lkz.onrender.com/absent/sendmail/${param.id}`)
+            console.log('send success')
+            navigate('/absent')
+        } catch (err) {
+            console.log(err)
+        }
+
+    }
+    const handleDelete = async (req, res) => {
+        try {
+            await axios.post(`https://mern-backend-4lkz.onrender.com/absent/sendmail/delete/${param.id}`)
+            console.log('delete success');
+            navigate('/absent/create')
+
+        } catch (err) {
+            console.log(err)
         }
     }
 
+
+
     return (
-        <div className="container">
-            <h2>{crud.companyName}</h2>
+        <div className="container-sendmail">
+            <h1>Mẫu đơn nghỉ phép</h1>
+            <div className="content-send">
+                <div className="send-title">Tên nhân viên</div>: {crud.staffName}
+            </div>
 
-            <p>
-                <b>Phone</b>: <a href={`tel:+${crud.phone}`}> {crud.phone} </a>
-            </p>
+            <div className="content-send" >
+                <div className="send-title">Số ngày nghỉ</div>: {crud.daysleave}
+            </div>
+            <div className="content-send">
+                <div className="send-title">Từ ngày</div>: {crud.daysfrom}
+            </div>
+            <div className="content-send">
+                <div className="send-title">Đến ngày</div>: {crud.daysto}
+            </div>
+            <div className="content-send">
+                <div className="send-title">Lí do nghỉ phép</div>: <div align="justify">{crud.description}</div>
+            </div>
 
-            <p>
-                <b>Email</b>: {crud.email}
-            </p>
-            <p>
-                <b>Location</b>: {crud.location}
-            </p>
-            <p>
-                <b>Link</b> :
-                <a href={` ${crud.link}`} target="_blank" rel="noreferrer">
-                    {crud.link}
-                </a>
-            </p>
-            <p>
-                <b>Description</b>: <p align="justify">{crud.description}</p>
-            </p>
-            <p>
-                <small>
-                    <b>ID</b>: {crud._id}
-                </small>
-            </p>
             <div className="btn-group ">
-                <Link to={`/cruds/${crud._id}/edit`} className="btn btn-primary">
-                    Edit
-                </Link>
-                <button onClick={handleDelete} className="btn btn-danger">
-                    Delete
+
+                <button onClick={handleSend} className="btn btn-danger">
+                    Gửi xác nhận
                 </button>
-                <Link to="/cruds" className="btn btn-secondary">
+                <button onClick={handleDelete} className="btn btn-danger">
                     Close
-                </Link>
+                </button>
             </div>
             <hr />
         </div>
     );
 }
 
-export default CrudDetails;
+export default SendMail;

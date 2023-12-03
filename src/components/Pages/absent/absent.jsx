@@ -9,8 +9,9 @@ function CrudTable() {
     useEffect(function () {
         async function getCruds() {
             try {
-                const response = await axios.get("/api/cruds");
+                const response = await axios.get("https://mern-backend-4lkz.onrender.com/absent/list");
                 setCruds(response.data);
+                // console.log(cruds.map(crud => crud.verified))
             } catch (error) {
                 console.log("error", error);
             }
@@ -19,13 +20,17 @@ function CrudTable() {
     }, []);
 
     return (
-        <div className="container">
+        <div className="container-absent">
+            <Link to="/" className="btn-home">
+                Trang chủ
+            </Link>
             <div>
                 <h2>
-                    CRUD - Table View
+                    <div className="table-title">Danh sách nghỉ phép</div>
+
                     <p>
                         <Link to="/absent/create" className="btn btn-primary float-right">
-                            Create CRUD
+                            Tạo mẫu
                         </Link>
                     </p>
                 </h2>
@@ -33,16 +38,17 @@ function CrudTable() {
             </div>
 
             <div className="table-responsive">
-                <table className="table riped  table-hover table-bordered container">
+                <table className="tb-container">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Location</th>
-                            <th>View</th>
-                            <th>Edit</th>
-                            <th>Delete</th>
+                            <th> Tên nhân viên</th>
+                            <th>Số ngày nghỉ</th>
+                            <th>Từ ngày</th>
+                            <th>Đến ngày</th>
+                            <th>Lí do nghỉ phép</th>
+                            <th>Tình trạng phép</th>
+                            <th>Tổng ngày phép</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -50,35 +56,13 @@ function CrudTable() {
                             cruds.map((crud) => {
                                 return (
                                     <tr key={crud._id}>
-                                        <td>
-                                            <Link to={`/cruds/${crud._id}`} className="link-line">
-                                                {crud.companyName}
-                                            </Link>
-                                        </td>
-                                        <td>{crud.phone}</td>
-                                        <td>{crud.email}</td>
-                                        <td>{crud.location}</td>
-                                        <td>
-                                            <Link to={`/cruds/${crud._id}`} className="btn btn-warning">
-                                                View
-                                            </Link>
-                                        </td>
-                                        <td>
-                                            <Link
-                                                to={`/cruds/${crud._id}/edit`}
-                                                className="btn btn-success"
-                                            >
-                                                Edit
-                                            </Link>
-                                        </td>
-                                        <td>
-                                            <Link
-                                                to={`/cruds/${crud._id}/delete`}
-                                                className="btn btn-danger"
-                                            >
-                                                Delete
-                                            </Link>
-                                        </td>
+                                        <td>{crud.staffName}</td>
+                                        <td>{crud.daysleave}</td>
+                                        <td>{crud.daysfrom}</td>
+                                        <td>{crud.daysto}</td>
+                                        <td>{crud.description}</td>
+                                        <td>{(crud.verified) ? "Đã xác nhận" : "Chưa xác nhận"}</td>
+
                                     </tr>
                                 );
                             })}
