@@ -1,6 +1,7 @@
 import "./formTodo.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
 
 
@@ -56,6 +57,9 @@ const TodoApp = () => {
 
     return (
         <div className="App">
+            <Link to="/">
+                <div className="homepage-back">Trang chủ</div>
+            </Link>
             <div className="homepage">
                 <div className="homepage_header">
                     <h1> Nhắc Nhở Công Việc ⏳  </h1>
