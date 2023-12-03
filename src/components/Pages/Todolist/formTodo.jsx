@@ -28,7 +28,6 @@ const TodoApp = () => {
         if (reminderMsg && remindAt && toEmail) {
             const token = localStorage.getItem("token")
             try {
-                const userId = param.id;
                 await axios.post("https://mern-backend-4lkz.onrender.com/addReminder", { reminderMsg, remindAt, toEmail, token })
                     .then((res) => {
                         setReminderList(res.data);
