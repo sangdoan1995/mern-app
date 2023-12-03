@@ -14,11 +14,10 @@ function App() {
 
 	return (
 		<Routes>
-			<Route path={path.HOME} exact element={<Main />} />
-			{user && <Route path={path.APP} element={<Navigate replace to={path.HOME} />} />}
+			{user && <Route path={path.HOME} exact element={<Main />} />}
 			<Route path={path.SIGNUP} exact element={<Signup />} />
 			<Route path={path.LOGIN} exact element={<Login />} />
-			<Route path={path.APP} element={<Navigate replace to={path.LOGIN} />} />
+			<Route path={path.HOME} element={<Navigate replace to={path.LOGIN} />} />
 			<Route path={path.VERIFY_EMAIL} element={<EmailVerify />} />
 			<Route path={path.TODO} element={<Todo />} />
 			<Route path={path.LISTVIEW} element={<Absent />} />

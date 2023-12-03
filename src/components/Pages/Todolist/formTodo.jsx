@@ -1,6 +1,5 @@
 import "./formTodo.css";
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 
@@ -10,12 +9,11 @@ const TodoApp = () => {
     const [toEmail, settoEmail] = useState("");
     const [remindAt, setRemindAt] = useState();
     const [reminderList, setReminderList] = useState([]);
-    const param = useParams()
     useEffect(() => {
         async function fetchData() {
             try {
-                // const token = localStorage.getItem("token")
-                await axios.get(`https://mern-backend-4lkz.onrender.com/getAllReminder/${param.id}`)
+                const token = localStorage.getItem("token")
+                await axios.get(`https://mern-backend-4lkz.onrender.com/getAllReminder/${token}`)
                     .then((res) => setReminderList(res.data))
                     .catch((error) => { console.log(error) });
             } catch (error) {
@@ -28,10 +26,10 @@ const TodoApp = () => {
 
     const addReminder = async (req, res) => {
         if (reminderMsg && remindAt && toEmail) {
-            // const token = localStorage.getItem("token")
+            const token = localStorage.getItem("token")
             try {
                 const userId = param.id;
-                await axios.post("https://mern-backend-4lkz.onrender.com/addReminder", { reminderMsg, remindAt, toEmail, userId })
+                await axios.post("https://mern-backend-4lkz.onrender.com/addReminder", { reminderMsg, remindAt, toEmail, token })
                     .then((res) => {
                         setReminderList(res.data);
                     });

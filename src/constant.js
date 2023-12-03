@@ -1,10 +1,9 @@
 export const path = {
     LOGIN: '/login',
-    HOME: '/:id',
-    APP: '/',
+    HOME: '/',
     SIGNUP: '/signup',
     VERIFY_EMAIL: '/users/:id/verify/:token',
-    TODO: '/:id/todo',
+    TODO: '/todo',
     LISTVIEW: '/absent',
     CREATE: '/absent/create',
     SENDMAIL: '/absent/sendmail/:id'

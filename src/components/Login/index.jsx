@@ -17,8 +17,8 @@ const Login = () => {
 		try {
 			const url = `https://mern-backend-4lkz.onrender.com/api/auth`;
 			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = `/${res.userId}`;
+			localStorage.setItem("token", res.userId);
+			window.location = `/`;
 		} catch (error) {
 			if (
 				error.response &&
