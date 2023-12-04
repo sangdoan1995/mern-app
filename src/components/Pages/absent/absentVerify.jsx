@@ -6,13 +6,13 @@ import "./absentVerify.css";
 import { Fragment } from "react/cjs/react.production.min";
 
 const AbsentVerify = () => {
-    const [validUrl, setValidUrl] = useState(true);
+    const [validUrl, setValidUrl] = useState(false);
     const param = useParams();
 
     useEffect(() => {
         const verifyEmailUrl = async () => {
             try {
-                const url = `https://mern-app-khdt-mobifone.vercel.app/absent/sendmail/${param.id}/verify/${param.token}`;
+                const url = `https://mern-backend-4lkz.onrender.com/absent/sendmail/${param.id}/verify/${param.token}`;
                 const { data } = await axios.get(url);
                 console.log(data);
                 setValidUrl(true);
