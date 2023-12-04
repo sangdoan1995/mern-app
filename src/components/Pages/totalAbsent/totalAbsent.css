@@ -1,4 +1,4 @@
-.container-absent {
+.container-absent-total {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     border: 1px solid black;
@@ -10,37 +10,25 @@
 
 }
 
-.btn-home {
+.btn-home-total {
     color: rgb(8, 195, 241);
     font-size: 20px;
 }
 
-.table-title {
-    color: black;
+.table-title-total {
+    color: rgb(10, 15, 15);
     font-size: 30px;
-
+    margin: 20px 0 20px 10px;
 }
 
-a.btn.btn-primary.float-right {
-    border: 1px solid black;
-    border-radius: 5px;
-    padding: 12px;
-    font-size: 18px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 30px;
-
+.sub-tb-total {
+    font-size: 25px;
+    margin-left: 10px;
+    color: rgb(42, 165, 52);
 }
 
-a.btn.btn-primary.float-right.total {
-    background-color: chocolate;
-}
 
-a.btn.btn-primary.float-right:hover {
-    background-color: red;
-    color: white;
-}
-
-.tb-container {
+.tb-container-total {
     width: 99%;
 }
 

@@ -7,5 +7,6 @@ export const path = {
     LISTVIEW: '/absent',
     CREATE: '/absent/create',
     SENDMAIL: '/absent/sendmail/:id',
-    ABSENT_VERIFY: '/absent/sendmail/:id/verify/:token'
+    ABSENT_VERIFY: '/absent/sendmail/:id/verify/:token',
+    TOTAL_ABSENT: '/absent/total'
 }

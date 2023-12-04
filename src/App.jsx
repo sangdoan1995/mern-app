@@ -9,6 +9,7 @@ import SendMail from "./components/Pages/absent/sendMail";
 import AbsentVerify from "./components/Pages/absent/absentVerify";
 import { path } from "./constant";
 import EmailVerify from "./components/EmailVerify";
+import TotalAbsent from "./components/Pages/totalAbsent/totalAbsent";
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -25,6 +26,7 @@ function App() {
 			<Route path={path.CREATE} element={<Create />} />
 			<Route path={path.SENDMAIL} element={<SendMail />} />
 			<Route path={path.ABSENT_VERIFY} element={<AbsentVerify />} />
+			<Route path={path.TOTAL_ABSENT} element={<TotalAbsent />} />
 
 		</Routes>
 	);

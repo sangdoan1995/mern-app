@@ -33,6 +33,11 @@ function CrudTable() {
                             Tạo mẫu
                         </Link>
                     </p>
+                    <p>
+                        <Link to="/absent/total" className="btn btn-primary float-right total">
+                            Tổng ngày phép
+                        </Link>
+                    </p>
                 </h2>
                 <hr />
             </div>
