@@ -10,7 +10,7 @@ function CrudTotal() {
         const userId = localStorage.getItem("token");
         async function getTotal() {
             try {
-                const response = await axios.get(`https://mern-backend-4lkz.onrender.com/absent/total/${userId}}`);
+                const response = await axios.get(`https://mern-backend-4lkz.onrender.com/absent/total/${userId}`);
                 setTotal(response.data);
                 // console.log(cruds.map(crud => crud.verified))
             } catch (error) {
