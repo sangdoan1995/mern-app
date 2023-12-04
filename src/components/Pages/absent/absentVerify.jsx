@@ -6,7 +6,7 @@ import "./absentVerify.css";
 import { Fragment } from "react/cjs/react.production.min";
 
 const AbsentVerify = () => {
-    const [validUrl, setValidUrl] = useState(false);
+    const [validUrl, setValidUrl] = useState(true);
     const param = useParams();
 
     useEffect(() => {
