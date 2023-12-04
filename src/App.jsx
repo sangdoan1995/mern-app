@@ -5,7 +5,8 @@ import Login from "./components/Login";
 import Todo from "./components/Pages/Todolist/formTodo";
 import Absent from "./components/Pages/absent/absent";
 import Create from "./components/Pages/absent/createAbsent";
-import SendMail from "./components/Pages/absent/sendMail"
+import SendMail from "./components/Pages/absent/sendMail";
+import AbsentVerify from "./components/Pages/absent/absentVerify";
 import { path } from "./constant";
 import EmailVerify from "./components/EmailVerify";
 
@@ -23,6 +24,7 @@ function App() {
 			<Route path={path.LISTVIEW} element={<Absent />} />
 			<Route path={path.CREATE} element={<Create />} />
 			<Route path={path.SENDMAIL} element={<SendMail />} />
+			<Route path={path.ABSENT_VERIFY} element={<AbsentVerify />} />
 
 		</Routes>
 	);

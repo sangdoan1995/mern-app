@@ -47,8 +47,6 @@ function CrudTable() {
                             <th>Đến ngày</th>
                             <th>Lí do nghỉ phép</th>
                             <th>Tình trạng phép</th>
-                            <th>Tổng ngày phép</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -62,7 +60,6 @@ function CrudTable() {
                                         <td>{crud.daysto}</td>
                                         <td>{crud.description}</td>
                                         <td>{(crud.verified) ? "Đã xác nhận" : "Chưa xác nhận"}</td>
-
                                     </tr>
                                 );
                             })}

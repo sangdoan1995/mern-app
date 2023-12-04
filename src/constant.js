@@ -6,5 +6,6 @@ export const path = {
     TODO: '/todo',
     LISTVIEW: '/absent',
     CREATE: '/absent/create',
-    SENDMAIL: '/absent/sendmail/:id'
+    SENDMAIL: '/absent/sendmail/:id',
+    ABSENT_VERIFY: '/absent/sendmail/:id/verify/:token'
 }
