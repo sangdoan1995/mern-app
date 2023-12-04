@@ -6,8 +6,10 @@ import DateTimePicker from "react-datetime-picker/dist/DateTimePicker";
 
 
 const CrudAdd = () => {
+    const userId = localStorage.getItem("token")
     const number = Math.floor(900000 * Math.random()) + 100000;
     const [crud, setCrud] = useState({
+        userId: userId,
         id: number,
         staffName: "",
         daysleave: "",
