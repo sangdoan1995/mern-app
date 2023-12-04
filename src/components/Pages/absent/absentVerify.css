@@ -1,4 +1,4 @@
-.container {
+.container-verify {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 
-.green_btn {
+.green_btn-verify {
     border: none;
     outline: none;
     padding: 12px 0;
@@ -19,6 +19,6 @@
     cursor: pointer;
 }
 
-.error {
+.error-verify {
     background-color: #ff0000;
 }

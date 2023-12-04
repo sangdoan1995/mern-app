@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import success from "../../../images/success.png";
-import "./absentVefify.css";
+import "./absentVerify.css";
 import { Fragment } from "react/cjs/react.production.min";
 
 const AbsentVerify = () => {
@@ -27,16 +27,16 @@ const AbsentVerify = () => {
     return (
         <Fragment>
             {validUrl ? (
-                <div className="container">
+                <div className="container-verify">
                     <img src={success} alt="success_img" className="success_img" />
-                    <h1>Xác nhận phép thành công</h1>
+                    <div>Xác nhận phép thành công</div>
                     <Link to="/absent">
-                        <button className="green_btn">Danh sách nghỉ phép</button>
+                        <button className="green_btn-verify">Danh sách nghỉ phép</button>
                     </Link>
                 </div>
             ) : (
 
-                <h1 className="error">Xác nhận đã hết hạn !!!</h1>
+                <div className="error-verify">Xác nhận đã hết hạn !!!</div>
 
 
             )}
