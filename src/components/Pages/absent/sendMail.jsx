@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./sendMail.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SendMail = (req, res) => {
     const [crud, setCrud] = useState('');
@@ -9,6 +11,7 @@ const SendMail = (req, res) => {
     const navigate = useNavigate();
 
     useEffect(() => {
+        toast.info("Loading data ...", { position: toast.POSITION.TOP_RIGHT })
         const handleGetData = async (req, res) => {
             const { data } = await axios.get(`https://mern-backend-4lkz.onrender.com/absent/sendmail/${param.id}`);
             setCrud(data);
@@ -18,21 +21,25 @@ const SendMail = (req, res) => {
 
     const handleSend = async (req, res) => {
         try {
+            toast.success("start sending ...", { position: toast.POSITION.TOP_RIGHT })
             await axios.post(`https://mern-backend-4lkz.onrender.com/absent/sendmail/${param.id}`)
             console.log('send success')
             navigate('/absent')
         } catch (err) {
+            toast.error(`occurred error`, { position: toast.POSITION.TOP_RIGHT })
             console.log(err)
         }
 
     }
     const handleDelete = async (req, res) => {
         try {
+            toast.warning("Delete success", { position: toast.POSITION.TOP_RIGHT })
             await axios.post(`https://mern-backend-4lkz.onrender.com/absent/sendmail/delete/${param.id}`)
             console.log('delete success');
             navigate('/absent/create')
 
         } catch (err) {
+            toast.error(`occurred error:${err}`, { position: toast.POSITION.TOP_RIGHT })
             console.log(err)
         }
     }
@@ -65,6 +72,7 @@ const SendMail = (req, res) => {
                     <button onClick={handleSend} className="btn btn-danger">
                         Gửi xác nhận
                     </button>
+                    <ToastContainer />
                     <button onClick={handleDelete} className="btn btn-danger">
                         Close
                     </button>

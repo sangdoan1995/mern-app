@@ -3,6 +3,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom"
 import "./createAbsent.css";
 import DateTimePicker from "react-datetime-picker/dist/DateTimePicker";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 
 const CrudAdd = () => {
@@ -23,7 +25,7 @@ const CrudAdd = () => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-
+        toast.info("Loading data ...", { position: toast.POSITION.TOP_RIGHT })
         const data = await axios.post('https://mern-backend-4lkz.onrender.com/absent/create', crud)
             .then(res => console.log(res.data))
             .catch(err => console.log(err))
@@ -32,6 +34,7 @@ const CrudAdd = () => {
     }
 
     function handleCancel() {
+        toast.warning("come back", { position: toast.POSITION.TOP_RIGHT })
         navigate("/absent");
     }
 
@@ -110,7 +113,7 @@ const CrudAdd = () => {
                             className="form-control"
                         />
                     </div>
-
+                    <ToastContainer />
                     <div className="btn-group">
 
                         <input type="submit" value="Submit" className="btn btn-primary" onClick={handleSubmit} />

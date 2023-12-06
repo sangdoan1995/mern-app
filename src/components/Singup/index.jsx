@@ -2,6 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Signup = () => {
 	const [data, setData] = useState({
@@ -23,7 +25,9 @@ const Signup = () => {
 			const url = `https://mern-backend-4lkz.onrender.com/api/users`;
 			const { data: res } = await axios.post(url, data);
 			setMsg(res.message);
+			toast.success("register success", { position: toast.POSITION.TOP_RIGHT })
 		} catch (error) {
+			toast.error(`occurred error`, { position: toast.POSITION.TOP_RIGHT })
 			if (
 				error.response &&
 				error.response.status >= 400 &&
@@ -45,6 +49,7 @@ const Signup = () => {
 						</button>
 					</Link>
 				</div>
+				<ToastContainer />
 				<div className={styles.right}>
 					<form className={styles.form_container} onSubmit={handleSubmit}>
 						<h1>Create Account</h1>

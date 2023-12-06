@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import "./totalAbsent.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function CrudTotal() {
     const [total, setTotal] = useState([]);
@@ -11,15 +13,18 @@ function CrudTotal() {
     useEffect(function () {
         async function getTotal() {
             try {
+                toast.info("Loading data ...", { position: toast.POSITION.TOP_RIGHT })
                 const response = await axios.get(`https://mern-backend-4lkz.onrender.com/absent/total/${userId}`)
                     .then(res => setTotal(res.data))
                     .catch(err => console.log(err));
 
             } catch (error) {
+                toast.error(`occurred error:${error}`, { position: toast.POSITION.TOP_RIGHT })
                 console.log("error", error);
             }
         }
         const getDataTotal = async (req, res) => {
+            toast.info("Loading data ...", { position: toast.POSITION.TOP_RIGHT })
             await axios.get(`https://mern-backend-4lkz.onrender.com/absent/totaluser/${userId}`)
                 .then(res => setData2(res.data))
                 .catch(err => console.log(err))
@@ -41,7 +46,7 @@ function CrudTotal() {
 
     const Postdate = async (freeDate) => {
         if (freeDate) {
-
+            toast.success("Add success", { position: toast.POSITION.TOP_RIGHT })
             await axios.post(`https://mern-backend-4lkz.onrender.com/absent/leavedate/${userId}`, { freeDate })
                 .then(res => console.log('post success', res.data))
                 .catch(err => console.log(err));
@@ -58,6 +63,7 @@ function CrudTotal() {
         async function job() {
             totalDate += 1;
             const userId = localStorage.getItem("token");
+            toast.success("update success", { position: toast.POSITION.TOP_RIGHT })
             await axios.post(`https://mern-backend-4lkz.onrender.com/absent/totaldate/${userId}`, { totalDate })
                 .then(res => console.log(res.data))
                 .catch(err => console.log(err));
@@ -98,7 +104,7 @@ function CrudTotal() {
                 <div className="table-title-total-2">✈ Ngày phép còn lại : {sum}</div>
                 <hr />
             </div>
-
+            <ToastContainer />
             <div className="table-responsive-total">
                 <table className="tb-container-total">
                     <thead>

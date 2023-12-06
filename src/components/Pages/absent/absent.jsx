@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./absent.css";
 
 function CrudTable() {
@@ -9,10 +11,12 @@ function CrudTable() {
     useEffect(function () {
         async function getCruds() {
             try {
+                toast.info("Loading ...", { position: toast.POSITION.TOP_RIGHT })
                 const response = await axios.get("https://mern-backend-4lkz.onrender.com/absent/list");
                 setCruds(response.data);
                 // console.log(cruds.map(crud => crud.verified))
             } catch (error) {
+                toast.error(`occurred error: ${error}`, { position: toast.POSITION.TOP_RIGHT })
                 console.log("error", error);
             }
         }
@@ -41,6 +45,7 @@ function CrudTable() {
                 </h2>
                 <hr />
             </div>
+            <ToastContainer />
 
             <div className="table-responsive">
                 <table className="tb-container">
