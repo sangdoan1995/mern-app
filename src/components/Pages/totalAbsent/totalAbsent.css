@@ -7,23 +7,24 @@
     padding: 20px;
     border-radius: 5px;
     width: 100%;
-    margin-left: 30px;
+    height: 840px;
+    background-image: url(https://img4.thuthuatphanmem.vn/uploads/2020/06/05/hinh-nen-cong-nghe-don-gian-ma-dep_103228946.jpg);
 
 }
 
 .btn-home-total {
-    color: rgb(8, 195, 241);
+    color: rgb(12, 8, 241);
     font-size: 20px;
 }
 
 .table-title-total {
-    color: rgb(12, 12, 14);
+    color: rgb(10, 233, 10);
     font-size: 45px;
     margin: 20px 0 20px 600px;
 }
 
 .table-title-total-2 {
-    color: rgb(5, 9, 131);
+    color: #9b0707;
     font-size: 25px;
     margin: 20px 0 20px 10px;
 }

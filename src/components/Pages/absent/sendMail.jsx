@@ -40,35 +40,37 @@ const SendMail = (req, res) => {
 
 
     return (
-        <div className="container-sendmail">
-            <h1>Mẫu đơn nghỉ phép</h1>
-            <div className="content-send">
-                <div className="send-title">Tên nhân viên</div>: {crud.staffName}
-            </div>
+        <div className="container-root-sendmail">
+            <div className="container-sendmail">
+                <h1>Mẫu đơn nghỉ phép</h1>
+                <div className="content-send">
+                    <div className="send-title">Tên nhân viên</div>: {crud.staffName}
+                </div>
 
-            <div className="content-send" >
-                <div className="send-title">Số ngày nghỉ</div>: {crud.daysleave}
-            </div>
-            <div className="content-send">
-                <div className="send-title">Từ ngày</div>: {crud.daysfrom}
-            </div>
-            <div className="content-send">
-                <div className="send-title">Đến ngày</div>: {crud.daysto}
-            </div>
-            <div className="content-send">
-                <div className="send-title">Lí do nghỉ phép</div>: <div align="justify">{crud.description}</div>
-            </div>
+                <div className="content-send" >
+                    <div className="send-title">Số ngày nghỉ</div>: {crud.daysleave}
+                </div>
+                <div className="content-send">
+                    <div className="send-title">Từ ngày</div>: {crud.daysfrom}
+                </div>
+                <div className="content-send">
+                    <div className="send-title">Đến ngày</div>: {crud.daysto}
+                </div>
+                <div className="content-send">
+                    <div className="send-title">Lí do nghỉ phép</div>: <div align="justify">{crud.description}</div>
+                </div>
 
-            <div className="btn-group ">
+                <div className="btn-group ">
 
-                <button onClick={handleSend} className="btn btn-danger">
-                    Gửi xác nhận
-                </button>
-                <button onClick={handleDelete} className="btn btn-danger">
-                    Close
-                </button>
+                    <button onClick={handleSend} className="btn btn-danger">
+                        Gửi xác nhận
+                    </button>
+                    <button onClick={handleDelete} className="btn btn-danger">
+                        Close
+                    </button>
+                </div>
+                <hr />
             </div>
-            <hr />
         </div>
     );
 }
