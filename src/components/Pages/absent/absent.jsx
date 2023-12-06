@@ -22,7 +22,7 @@ function CrudTable() {
     return (
         <div className="container-absent">
             <Link to="/" className="btn-home">
-                Trang chủ
+                👈Trang chủ
             </Link>
             <div>
                 <h2>
@@ -30,12 +30,12 @@ function CrudTable() {
 
                     <p>
                         <Link to="/absent/create" className="btn btn-primary float-right">
-                            Tạo mẫu phép
+                            ✊ Tạo mẫu phép
                         </Link>
                     </p>
                     <p>
                         <Link to="/absent/total" className="btn btn-primary float-right total">
-                            Tổng ngày phép
+                            ✊ Tổng ngày phép
                         </Link>
                     </p>
                 </h2>

@@ -87,15 +87,15 @@ function CrudTotal() {
     return (
         <div className="container-absent-total">
             <Link to="/absent" className="btn-home-total">
-                Danh sách nghỉ phép
+                👈Danh sách nghỉ phép
             </Link>
             <div>
                 <h2>
                     <div className="table-title-total">Danh sách nghỉ phép cá nhân</div>
 
                 </h2>
-                <div className="table-title-total-2">Tổng ngày phép cá nhân : {data2.totalDate}</div>
-                <div className="table-title-total-2">Ngày phép còn lại : {sum}</div>
+                <div className="table-title-total-2">✈ Tổng ngày phép cá nhân : {data2.totalDate}</div>
+                <div className="table-title-total-2">✈ Ngày phép còn lại : {sum}</div>
                 <hr />
             </div>
 

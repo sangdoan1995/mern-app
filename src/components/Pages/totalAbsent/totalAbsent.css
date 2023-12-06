@@ -13,18 +13,21 @@
 }
 
 .btn-home-total {
-    color: rgb(12, 8, 241);
-    font-size: 20px;
+    color: rgb(7, 4, 168);
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .table-title-total {
-    color: rgb(10, 233, 10);
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 3px;
     font-size: 45px;
-    margin: 20px 0 20px 600px;
+    margin-left: 500px;
 }
 
 .table-title-total-2 {
-    color: #9b0707;
+    color: #05f341;
     font-size: 25px;
     margin: 20px 0 20px 10px;
 }
