@@ -30,7 +30,7 @@ function CrudTable() {
 
                     <p>
                         <Link to="/absent/create" className="btn btn-primary float-right">
-                            Tạo mẫu
+                            Tạo mẫu phép
                         </Link>
                     </p>
                     <p>
