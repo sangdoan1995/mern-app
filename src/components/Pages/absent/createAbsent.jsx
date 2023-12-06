@@ -62,6 +62,7 @@ const CrudAdd = () => {
                             type="number"
                             value={crud.daysleave}
                             required
+                            min={0}
                             className="form-control"
                             onChange={(e) => setCrud({ ...crud, daysleave: e.target.value })}
                         />
