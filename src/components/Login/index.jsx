@@ -17,9 +17,9 @@ const Login = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
+			toast.success("Login success", { position: toast.POSITION.TOP_RIGHT })
 			const url = `https://mern-backend-4lkz.onrender.com/api/auth`;
 			const { data: res } = await axios.post(url, data);
-			toast.success("Login success", { position: toast.POSITION.TOP_RIGHT })
 			localStorage.setItem("token", res.userId);
 			window.location = `/`;
 		} catch (error) {
