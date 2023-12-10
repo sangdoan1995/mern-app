@@ -1,0 +1,57 @@
+.Home-block {
+    width: 100%;
+    height: 940px;
+    display: flex;
+    justify-content: center;
+    background-image: url(https://img4.thuthuatphanmem.vn/uploads/2020/06/05/hinh-nen-cong-nghe-don-gian-ma-dep_103228946.jpg);
+}
+
+
+
+.Home-block-container {
+    color: white;
+    margin: auto;
+    margin-top: 50px;
+}
+
+.Home-title {
+    color: rgb(239, 239, 243);
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.content {
+    height: 60px;
+    background-color: rgb(65, 65, 59);
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+.Home-input {
+    background-color: rgb(65, 65, 59);
+    color: white;
+}
+
+.Home-result {
+    width: 500px;
+    height: 120px;
+    color: white;
+    background-color: rgb(65, 65, 59);
+}
+
+.Home-click {
+    padding: 10px;
+    width: 80px;
+    display: flex;
+    margin-left: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: aquamarine;
+    font-size: medium;
+}
+
+.Home-click:hover {
+    background-color: red;
+    color: white;
+}

@@ -10,6 +10,7 @@ import AbsentVerify from "./components/Pages/absent/absentVerify";
 import { path } from "./constant";
 import EmailVerify from "./components/EmailVerify";
 import TotalAbsent from "./components/Pages/totalAbsent/totalAbsent";
+import Blockchain from "./components/Blockchain/MintBlockchain"
 
 function App() {
 	const user = localStorage.getItem("token");
@@ -27,6 +28,7 @@ function App() {
 			<Route path={path.SENDMAIL} element={<SendMail />} />
 			<Route path={path.ABSENT_VERIFY} element={<AbsentVerify />} />
 			<Route path={path.TOTAL_ABSENT} element={<TotalAbsent />} />
+			<Route path={path.BLOCKCHAIN} element={<Blockchain />} />
 
 		</Routes>
 	);

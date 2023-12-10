@@ -8,5 +8,6 @@ export const path = {
     CREATE: '/absent/create',
     SENDMAIL: '/absent/sendmail/:id',
     ABSENT_VERIFY: '/absent/sendmail/:id/verify/:token',
-    TOTAL_ABSENT: '/absent/total'
+    TOTAL_ABSENT: '/absent/total',
+    BLOCKCHAIN: '/blockchain'
 }
