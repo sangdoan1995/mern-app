@@ -63,6 +63,7 @@ const Mintblockchain = () => {
                     value={uri}
                     onChange={e => Seturi(e.target.value)}
                 />
+                <ToastContainer />
                 <input type="text" className='Home-input' placeholder='Địa chỉ ví ' onChange={e => Setaddress(e.target.value)} />
                 <button className='Home-click' onClick={MintNFT}>MintNFT</button>
 
